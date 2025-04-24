@@ -1,0 +1,48 @@
+body {
+    min-width: 1420px;
+  }
+  .column {
+    width: 20rem;
+    float: left;
+    padding-bottom: 100px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .portlet {    
+    
+    padding: 0.3em;
+    margin-top: 1em; 
+    margin-left: 1.5rem;  
+    
+  }
+
+.portlet-header {
+    padding: 0.2em 0.3em;
+    margin-bottom: 0.5em;
+    position: relative;
+    cursor: -webkit-grab;
+    cursor: grab;
+    background: #000000;
+    background: -moz-linear-gradient(-45deg, #000000 0%, #5b5b5b 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, #000000), color-stop(100%, #5b5b5b));
+    background: -webkit-linear-gradient(-45deg, #000000 0%, #5b5b5b 100%);
+    background: -o-linear-gradient(-45deg, #000000 0%, #5b5b5b 100%);
+    background: -ms-linear-gradient(-45deg, #000000 0%, #5b5b5b 100%);
+    background: -webkit-linear-gradient(315deg, #000000 0%, #5b5b5b 100%);
+    background: -o-linear-gradient(315deg, #000000 0%, #5b5b5b 100%);
+    background: linear-gradient(135deg, #000000 0%, #5b5b5b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#5b5b5b', GradientType=1 );
+    color: #fff;
+    border-radius: 5px;
+}  
+  .portlet-content {
+    padding: 0.4em;
+  }
+  .portlet-placeholder {
+    border: 1px dotted black;
+    margin: 0 1em 1em 0;
+    height: 200px;
+    width: 15rem;
+    margin-top: 1em; 
+    margin-left: 2.5rem; 
+  }

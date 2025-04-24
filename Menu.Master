@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Menu.master.cs" Inherits="ProyectoFinal_IngSoftware.Menu" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Interactive SCRUM Board | By HackHer</title>
+
+    <meta charset="UTF-8">
+  
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/CSS.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="css/myStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/portlet.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/myJS.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 88px;
+            height: 85px;
+        }
+
+        .nav {
+            background: #000000;
+              background: -moz-linear-gradient(-45deg, #000000 0%, #5b5b5b 100%);
+              background: -webkit-gradient(left top, right bottom, color-stop(0%, #000000), color-stop(100%, #5b5b5b));
+              background: -webkit-linear-gradient(-45deg, #000000 0%, #5b5b5b 100%);
+              background: -o-linear-gradient(-45deg, #000000 0%, #5b5b5b 100%);
+              background: -ms-linear-gradient(-45deg, #000000 0%, #5b5b5b 100%);
+              background: -webkit-linear-gradient(315deg, #000000 0%, #5b5b5b 100%);
+              background: -o-linear-gradient(315deg, #000000 0%, #5b5b5b 100%);
+              background: linear-gradient(135deg, #000000 0%, #5b5b5b 100%);
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#5b5b5b', GradientType=1 );
+              color: #fff; 
+
+        }          
+
+        
+               
+
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        
+        <nav class="nav main-nav nav-pills flex-column flex-sm-row" style="background-color: #E65170ff; color: white">
+           <img src="Images/logoabbblanco.png" class="auto-style1"/>
+           <a id="btnHome" class="linksW flex-sm-fill text-sm-center nav-link align-self-center" href="Home.aspx" runat="server">Inicio</a>
+           <a id="btnUsuariosSystem" class="linksW flex-sm-fill text-sm-center nav-link align-self-center" href="SystemUsers.aspx" runat="server">Usuarios del sistema</a>
+           <a id="btnReporteGeneral" class="linksW flex-sm-fill text-sm-center nav-link align-self-center" href="ReporteGeneral.aspx" runat="server">SCRUM Board</a>           
+           <asp:LinkButton class="linksW flex-sm-fill text-sm-center nav-link align-self-center" id="btnLogout" Text="Cerrar Sesión" OnClick="btnLogOut_Click" runat="server"/>
+        </nav>        
+        <div class="container text-center sec-nav">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-6">
+                    <asp:Label ID="lblRol" class="display-6" runat="server" Text="" ></asp:Label>
+
+                    <!--
+                    <asp:Label ID="lblUser" class="display-6"  runat="server" Text="" ></asp:Label>
+                    -->
+                    <!--
+                    <a id="user" runat="server" href="#" class="btn btn-primary px-3"></a>
+                    <a id="rol" runat="server" href="#" class="btn btn-primary px-3"></a>
+
+                    -->
+                </div>
+                <div class="col"></div>
+            </div>
+            
+        </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        
+    </form>
+    
+
+</body>
+    
+</html>
