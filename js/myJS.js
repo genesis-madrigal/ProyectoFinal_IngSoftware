@@ -35,14 +35,52 @@ function sentLocPortlets() {
 }
 */
 
+
+
+
+
+
+
 //funcion para pasar cambios al backend por medio de AJAX
-function sendChanges() {
-    
+function sendChanges() {   
+
+    /*
+    backlogVal = getDivChildrenDataFromString($('#backlogClm').html()).toString();
+    toDoVal = getDivChildrenDataFromString($('#toDoClm').html()).toString();
+    wipVal = getDivChildrenDataFromString($('#wipClm').html()).toString();
+    doneVal = getDivChildrenDataFromString($('#doneClm').html()).toString();
+    //info = JSON.stringify({ backlogInfo: backlogVal });
+    //console.log(' ' + backlogVal);
+    console.log('TEST2' + backlogVal);
+
+    $.ajax({
+        type: "POST",
+        url: "ReporteGeneral.aspx/MyWebMethod",
+        data: JSON.stringify({ backlogInfo: backlogVal, todoInfo: toDoVal, wipInfo: wipVal, doneInfo: doneVal }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (myresult) {
+            //Abrir modal
+            $('#confirmacionModal').modal('show');
+
+            //alert('Error - ' + response());
+
+        },
+        error: function (xhr, status, error) {
+            var errorMessage = xhr.status + ': ' + xhr.statusText;
+            alert('Error - ' + errorMessage);
+        }
+    });
+    */
+    //Alternate version
+   
     backlogVal = getDivIdsFromString($('#backlogClm').html()).toString();
     toDoVal = getDivIdsFromString($('#toDoClm').html()).toString();
     wipVal = getDivIdsFromString($('#wipClm').html()).toString();
     doneVal = getDivIdsFromString($('#doneClm').html()).toString();
 
+    console.log(' ' + backlogVal); 
+    
     $.ajax({
         type: "POST",
         url: "ReporteGeneral.aspx/MyWebMethod",
@@ -61,9 +99,39 @@ function sendChanges() {
             alert('Error - ' + errorMessage);
         }
     });
-   
+    
 }
 
+
+function getDivAndTextareaValues(htmlString) {
+    // Create a temporary container to parse the HTML string
+    const container = document.createElement('div');
+    container.innerHTML = htmlString;
+
+    // Initialize an object to store div IDs and textarea values
+    const result = {};
+
+    // Find all div elements with an id attribute
+    const divs = container.querySelectorAll('div[id]');
+
+    divs.forEach(div => {
+        const divId = div.id;
+        const textareas = div.querySelectorAll('textarea');
+
+        // Collect the values of all textareas inside the div
+        const textareaValues = {};
+
+        textareas.forEach(textarea => {
+            const textareaId = textarea.id;
+            textareaValues[textareaId] = textarea.value.trim(); // Use .value to get the textarea value
+        });
+
+        // Store the results with divId as the key
+        result[divId] = textareaValues;
+    });
+
+    return result;
+}
 
 //funcion para saber si hubo algun cambio
 function checkDiffColumns(idsBacklog, idsToDo, idsWIP, idsDone) {
@@ -116,8 +184,57 @@ function getDivIdsFromString(htmlString) {
     return ids;
 }
 
+//WIP
+function getInfoFromString(htmlString) {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = htmlString;
 
+    // Get all textarea elements
+    const textareas = tempDiv.querySelectorAll('textarea');
 
+    // Extract and return their values
+    return Array.from(textareas).map(textarea => textarea.value);
+}
+
+function getDivChildrenDataFromString(htmlString) {
+    // Create a temporary container to hold the HTML content
+    const tempContainer = document.createElement('div');
+
+    // Insert the HTML string into the temporary container
+    tempContainer.innerHTML = htmlString;
+
+    // Create an object to store the result
+    const result = {};
+
+    // Get all child div elements
+    const divs = tempContainer.querySelectorAll('div');
+
+    // Iterate over the divs and gather the required data
+    divs.forEach((div) => {
+        // Skip divs that don't have an id
+        if (!div.id) {
+            return; // Skip this div
+        }
+
+        // Get the id of the div (e.g., "child1", "child2", etc.)
+        const divId = div.id;
+
+        // Get all textarea elements inside the div
+        const textareas = div.querySelectorAll('textarea');
+
+        // If there are textareas, gather their values in an array
+        if (textareas.length > 0) {
+            const textareaValues = [];
+            textareas.forEach((textarea) => {
+                textareaValues.push(textarea.value);
+            });
+            result[divId] = textareaValues;
+        }
+    });
+
+    // Convert the result object to a JSON string
+    return JSON.stringify(result);
+}
 
 //#confirmacionModal
 

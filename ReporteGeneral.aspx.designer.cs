@@ -24,42 +24,6 @@ namespace ProyectoFinal_IngSoftware
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl myDiv;
 
         /// <summary>
-        /// gvBacklog control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvBacklog;
-
-        /// <summary>
-        /// gvToDo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvToDo;
-
-        /// <summary>
-        /// gvWIP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvWIP;
-
-        /// <summary>
-        /// gvDone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDone;
-
-        /// <summary>
         /// backlogClm control.
         /// </summary>
         /// <remarks>

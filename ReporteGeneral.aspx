@@ -8,80 +8,7 @@
        <h1 class="display-3"></h1>
            <h1 class="display-3"> SCRUM Board </h1>
            <div runat="server" id="myDiv"></div>
-
-        <!--
-       <div class="d-flex justify-content-center">
-            <br />
-            <br />
-            <asp:GridView ID="gvBacklog" runat="server" AutoGenerateColumns="False" CssClass="mydatagrid" PagerStyle-CssClass="pager" HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True">
-                <Columns>
-                    <asp:BoundField DataField="ID Usuario" HeaderText="ID del Usuario" SortExpression="ID Usuario" />
-                    <asp:BoundField DataField="Telefono" HeaderText="Télefono" SortExpression="Telefono" />
-                    <asp:BoundField DataField="CorreoElectronico" HeaderText="Correo Electrónico" SortExpression="CorreoElectronico" />
-                    <asp:BoundField DataField="ID Equipo" HeaderText="ID del Equipo" SortExpression="ID Equipo" />
-                    <asp:BoundField DataField="Detalle reparacion" HeaderText="Detalle Reparación" SortExpression="Detalle reparacion" />
-                    <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
-                    <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha Inicio" SortExpression="Fecha Inicio" />
-                    <asp:BoundField DataField="Fecha Fin" HeaderText="Fecha Fin" SortExpression="Fecha Fin" />
-                    <asp:BoundField DataField="ID Tecnico" HeaderText="ID del Técnico" SortExpression="ID Tecnico" />
-                    <asp:BoundField DataField="ID Reparacion" HeaderText="ID de la Reparación" SortExpression="ID Reparacion" />
-                    <asp:BoundField DataField="FechaSolicitud" HeaderText="Fecha de la Solicitud" SortExpression="FechaSolicitud" />
-                </Columns>
-            </asp:GridView>
-           <asp:GridView ID="gvToDo" runat="server" AutoGenerateColumns="False" CssClass="mydatagrid" PagerStyle-CssClass="pager" HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True">
-    <Columns>
-        <asp:BoundField DataField="ID Usuario" HeaderText="ID del Usuario" SortExpression="ID Usuario" />
-        <asp:BoundField DataField="Telefono" HeaderText="Télefono" SortExpression="Telefono" />
-        <asp:BoundField DataField="CorreoElectronico" HeaderText="Correo Electrónico" SortExpression="CorreoElectronico" />
-        <asp:BoundField DataField="ID Equipo" HeaderText="ID del Equipo" SortExpression="ID Equipo" />
-        <asp:BoundField DataField="Detalle reparacion" HeaderText="Detalle Reparación" SortExpression="Detalle reparacion" />
-        <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
-        <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha Inicio" SortExpression="Fecha Inicio" />
-        <asp:BoundField DataField="Fecha Fin" HeaderText="Fecha Fin" SortExpression="Fecha Fin" />
-        <asp:BoundField DataField="ID Tecnico" HeaderText="ID del Técnico" SortExpression="ID Tecnico" />
-        <asp:BoundField DataField="ID Reparacion" HeaderText="ID de la Reparación" SortExpression="ID Reparacion" />
-        <asp:BoundField DataField="FechaSolicitud" HeaderText="Fecha de la Solicitud" SortExpression="FechaSolicitud" />
-    </Columns>
-</asp:GridView>
-           <asp:GridView ID="gvWIP" runat="server" AutoGenerateColumns="False" CssClass="mydatagrid" PagerStyle-CssClass="pager" HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True">
-    <Columns>
-        <asp:BoundField DataField="ID Usuario" HeaderText="ID del Usuario" SortExpression="ID Usuario" />
-        <asp:BoundField DataField="Telefono" HeaderText="Télefono" SortExpression="Telefono" />
-        <asp:BoundField DataField="CorreoElectronico" HeaderText="Correo Electrónico" SortExpression="CorreoElectronico" />
-        <asp:BoundField DataField="ID Equipo" HeaderText="ID del Equipo" SortExpression="ID Equipo" />
-        <asp:BoundField DataField="Detalle reparacion" HeaderText="Detalle Reparación" SortExpression="Detalle reparacion" />
-        <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
-        <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha Inicio" SortExpression="Fecha Inicio" />
-        <asp:BoundField DataField="Fecha Fin" HeaderText="Fecha Fin" SortExpression="Fecha Fin" />
-        <asp:BoundField DataField="ID Tecnico" HeaderText="ID del Técnico" SortExpression="ID Tecnico" />
-        <asp:BoundField DataField="ID Reparacion" HeaderText="ID de la Reparación" SortExpression="ID Reparacion" />
-        <asp:BoundField DataField="FechaSolicitud" HeaderText="Fecha de la Solicitud" SortExpression="FechaSolicitud" />
-    </Columns>
-</asp:GridView>
-           <asp:GridView ID="gvDone" runat="server" AutoGenerateColumns="False" CssClass="mydatagrid" PagerStyle-CssClass="pager" HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True">
-    <Columns>
-        <asp:BoundField DataField="ID Usuario" HeaderText="ID del Usuario" SortExpression="ID Usuario" />
-        <asp:BoundField DataField="Telefono" HeaderText="Télefono" SortExpression="Telefono" />
-        <asp:BoundField DataField="CorreoElectronico" HeaderText="Correo Electrónico" SortExpression="CorreoElectronico" />
-        <asp:BoundField DataField="ID Equipo" HeaderText="ID del Equipo" SortExpression="ID Equipo" />
-        <asp:BoundField DataField="Detalle reparacion" HeaderText="Detalle Reparación" SortExpression="Detalle reparacion" />
-        <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
-        <asp:BoundField DataField="Fecha Inicio" HeaderText="Fecha Inicio" SortExpression="Fecha Inicio" />
-        <asp:BoundField DataField="Fecha Fin" HeaderText="Fecha Fin" SortExpression="Fecha Fin" />
-        <asp:BoundField DataField="ID Tecnico" HeaderText="ID del Técnico" SortExpression="ID Tecnico" />
-        <asp:BoundField DataField="ID Reparacion" HeaderText="ID de la Reparación" SortExpression="ID Reparacion" />
-        <asp:BoundField DataField="FechaSolicitud" HeaderText="Fecha de la Solicitud" SortExpression="FechaSolicitud" />
-    </Columns>
-</asp:GridView>
-
-            <br />
-
-            <br />
-
-            <br />
-
-       </div>
-        -->
+       
 
         <div class="d-flex justify-content-center">
             <div id="backlogClm" runat="server" ClientIDMode="Static" class="card column">  
@@ -180,4 +107,4 @@
         </div>  
 
 </asp:Content>
- 
+

@@ -81,24 +81,32 @@ namespace ProyectoFinal_IngSoftware
         protected void btnConsultar_Click(object sender, EventArgs e)
         {
             string codigo = txtLogInUser.Text;
-            string constr = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+
+            if (string.IsNullOrEmpty(codigo))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM SystemUsers WHERE LogInUser ='" + codigo + "'"))
-
-
-                using (SqlDataAdapter sda = new SqlDataAdapter())
+                LlenarGrid();
+            } else
+            {
+                string constr = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.Connection = con;
-                    sda.SelectCommand = cmd;
-                    using (DataTable dt = new DataTable())
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM SystemUsers WHERE LogInUser ='" + codigo + "'"))
+
+
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
-                        sda.Fill(dt);
-                        gvSystemUsers.DataSource = dt;
-                        gvSystemUsers.DataBind();  // actualizar el grid view
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            gvSystemUsers.DataSource = dt;
+                            gvSystemUsers.DataBind();  // actualizar el grid view
+                        }
                     }
                 }
             }
+            
         }
 
 
@@ -108,9 +116,10 @@ namespace ProyectoFinal_IngSoftware
             int resultado = 0;
 
             //Para hacer check de si son numeros o no
-            bool codigo = int.TryParse(txtLogInUser.Text, out int a);
+            bool logInUser = string.IsNullOrEmpty(txtLogInUser.Text);
+            bool clave = string.IsNullOrEmpty(txtClave.Text);
 
-            if (codigo)
+            if (!logInUser && !clave)
             {
                 resultado = SystemUser.ModificarID(txtLogInUser.Text, txtClave.Text);
             }
@@ -129,7 +138,7 @@ namespace ProyectoFinal_IngSoftware
             }
             else if (resultado == -2)
             {
-                alertas("Error al actualizar el usuario del sistema: Ingrese un usuario");
+                alertas("Error al actualizar el usuario del sistema: Ingrese un usuario o clave");
             }
             else
             {
